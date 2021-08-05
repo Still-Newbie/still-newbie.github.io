@@ -1,0 +1,34 @@
+{
+    "menu":[
+        {
+            "id":1,
+            "file":"Info",
+            "name":"정보"
+        },
+        {
+            "id":2,
+            "file":"Skills",
+            "name":"스킬"
+        },
+        {
+            "id":3,
+            "file":"Career",
+            "name":"경력"
+        },
+        {
+            "id":4,
+            "file":"Projects",
+            "name":"프로젝트"
+        },
+        {
+            "id":5,
+            "file":"Test",
+            "name":"궁합보기"
+        },
+        {
+            "id":6,
+            "file":"Contact",
+            "name":"입사제안"
+        }
+    ]
+}
