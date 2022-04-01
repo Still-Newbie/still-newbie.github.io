@@ -9,51 +9,80 @@ import Contact from './pages/Contact';
 import Projects from './pages/Projects';
 import Test from './pages/Test';
 import Header from './components/Header';
+import InfoNav from './components/InfoNav';
+import { useState } from 'react';
 
 const useStyles = makeStyles((theme) => ({
-  body:{
-    marginTop: '70px',
+  root: {
+    width: "100%",
+    height: "100vh",
+    display: "flex",
+    flexDirection: "column",
+  },
+  body: {
+    display: "flex",
+    flexGrow: "1",
+  },
+  content: {
+    paddingLeft: "300px",
+    width: "100%",
+    height: "100%",
   }
 }));
 
 function App() {
-  const classes = useStyles();
-  
-  return (
-    <div className="App">
-      <Header />
-      <div className={classes.body}>
-        <BrowserRouter>
-          <Switch>
-            <Route exact path="/">
-              <Info />
-            </Route>
-            <Route path="/Info">
-              <Info />
-            </Route>
-            <Route path="/Skills">
-              <Skills />
-            </Route>
-            <Route path="/Career">
-              <Career />
-            </Route>
-            <Route path="/Contact">
-              <Contact />
-            </Route>
-            <Route path="/Projects">
-              <Projects />
-            </Route>
-            <Route path="/Test">
-              <Test />
-            </Route>
-            <Route>
-              <ErrorPage />
-            </Route>
-          </Switch>
-        </BrowserRouter>
+    const styles = useStyles();
+    const [isDev, setIsDev] = useState(true);
+
+    const switchJob = () => {
+        setIsDev(prev => !prev)
+    }
+
+    const jobtype = (dev) => {
+        return dev ? "DEV" : "VE"
+    }
+
+    return (
+      <div className={styles.root}>
+        <Header menuchange={switchJob} isDev={isDev} />
+        <div className={styles.body}>
+          <InfoNav />
+          <div className={styles.content}>
+            <BrowserRouter>
+              <Switch>
+                <Route exact path="/">
+                  <Info jobtype={jobtype(isDev)} />
+                </Route>
+                <Route path="/Info">
+                  <Info jobtype={jobtype(isDev)} />
+                </Route>
+                <Route path="/Skills">
+                  <Skills jobtype={jobtype(isDev)} />
+                </Route>
+                <Route path="/Career">
+                  <Career jobtype={jobtype(isDev)} />
+                </Route>
+                <Route path="/Contact">
+                  <Contact jobtype={jobtype(isDev)} />
+                </Route>
+                <Route path="/Projects">
+                  <Projects jobtype={jobtype(isDev)} />
+                </Route>
+                <Route path="/Test">
+                  <Test jobtype={jobtype(isDev)} />
+                </Route>
+                <Route path="/Portfolio">
+                  <Test jobtype={jobtype(isDev)} />
+                </Route>
+                <Route>
+                  <ErrorPage />
+                </Route>
+              </Switch>
+            </BrowserRouter>
+          </div>
+        </div>
       </div>
-    </div>
-  );
+    );
 }
 
 export default App;

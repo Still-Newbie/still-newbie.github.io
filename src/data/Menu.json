@@ -1,5 +1,5 @@
 {
-    "menu":[
+    "menu1":[
         {
             "id":1,
             "file":"Info",
@@ -24,11 +24,23 @@
             "id":5,
             "file":"Test",
             "name":"궁합보기"
+        }
+    ],
+    "menu2":[
+        {
+            "id":11,
+            "file":"Info",
+            "name":"정보"
         },
         {
-            "id":6,
-            "file":"Contact",
-            "name":"입사제안"
+            "id":12,
+            "file":"Skills2",
+            "name":"스킬"
+        },
+        {
+            "id":13,
+            "file":"Portfolio",
+            "name":"포트폴리오"
         }
     ]
 }
